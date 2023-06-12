@@ -1,0 +1,54 @@
+#define LED1 PB4
+ #define LED2 PB5
+ #define LED3 PB6
+ #define BTN1 PB12
+ int num = 0;
+ void setup() {
+  // put your setup code here, to run once:
+pinMode(LED1,OUTPUT);
+pinMode(LED2,OUTPUT);
+pinMode(LED3,OUTPUT);
+pinMode(BTN1,INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if(digitalRead(BTN1) == 1){
+    num += 1;
+    if(num == 5){
+      num = 0;
+    }
+  }
+
+  switch (num) {
+    case num == 0:
+    digitalWrite(LED1,LOW);
+    digitalWrite(LED2,LOW);
+    digitalWrite(LED3,LOW);
+    break;
+
+    case num == 1:
+    digitalWrite(LED1,HIGH);
+    digitalWrite(LED2,LOW);
+    digitalWrite(LED3,LOW);
+    break;
+
+    case num == 2:
+    digitalWrite(LED1,LOW);
+    digitalWrite(LED2,HIGH);
+    digitalWrite(LED3,LOW);
+    break;
+
+    case num == 3:
+    digitalWrite(LED1,LOW);
+    digitalWrite(LED2,LOW);
+    digitalWrite(LED3,HIGH);
+    break;
+
+    case num == 4:
+    digitalWrite(LED1,HIGH);
+    digitalWrite(LED2,HIGH);
+    digitalWrite(LED3,HIGH);
+    break;
+  }
+}
